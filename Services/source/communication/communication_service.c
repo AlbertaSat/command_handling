@@ -20,6 +20,7 @@
 #include "communication/communication_service.h"
 
 #include <FreeRTOS.h>
+#include <os_task.h>
 #include <csp/csp.h>
 #include <csp/csp_endian.h>
 #include <main/system.h>
@@ -27,7 +28,7 @@
 #include "sband.h"
 #include "util/service_utilities.h"
 #include "services.h"
-#include "uhf_hal.h"
+#include "uhf.h"
 
 #define CHAR_LEN 4  // Numpy unicode string character length
 #define CALLSIGN_LEN 6
@@ -591,7 +592,7 @@ SAT_returnState communication_service_app(csp_packet_t *packet) {
       break;
 
     case UHF_GET_FULL_STAT:
-      status = HAL_UHF_getStatus(&U_stat.status_ctrl) +
+      status = HAL_UHF_getStatus(U_stat.status_ctrl) +
                HAL_UHF_getFreq(&U_stat.set.freq) +
                HAL_UHF_getUptime(&U_stat.uptime) +
                HAL_UHF_getPcktsOut(&U_stat.pckts_out) +

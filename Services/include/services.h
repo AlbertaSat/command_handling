@@ -43,7 +43,7 @@
 
 typedef enum {
   OBC_APP_ID = _OBC_APP_ID_,
-  EPS_APP_ID = _EPS_APP_ID_,
+  // NOTE: EPS_APP_ID kept in eps.h
   ADCS_APP_ID = _ADCS_APP_ID_,
   COMMS_APP_ID = _COMMS_APP_ID_,
   GND_APP_ID = _GND_APP_ID_,
