@@ -25,7 +25,11 @@
 SAT_returnState start_general_service(void);
 
 typedef enum {
-  REBOOT = 0
+  REBOOT = 0,
+  SET_TASK_DELAY = 1,
+  GET_TASK_DELAY = 2,
+  GET_TASK_LIST  = 3,
+  GET_TASK_WATERMARK = 4
 } General_Subtype;  // shared with EPS!
 
 typedef enum {
