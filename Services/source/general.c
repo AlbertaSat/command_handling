@@ -195,7 +195,7 @@ SAT_returnState general_app(csp_packet_t *packet) {
 
     case GET_TASK_WATERMARK:
         memcpy(&tsk, &packet->data[IN_DATA_BYTE], sizeof(uint32_t));
-        UBaseType_t watermark = dev_ex2_get_task_high_watermark(tsk);
+        UBaseType_t watermark = dev_ex2_get_task_high_watermark((TaskHandle_t)tsk);
         memcpy(&packet->data[OUT_DATA_BYTE], &watermark, sizeof(UBaseType_t));
         set_packet_length(packet, sizeof(UBaseType_t) + 2); // +1 for subservice, +1 for status
         status = 0;
